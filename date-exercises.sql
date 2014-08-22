@@ -1,7 +1,8 @@
 create database SuppliersAndParts;
-create table S (snum varchar(255), sname varchar(255), status int, city varchar(255), primary key(snum));
-create table P (pnum varchar(255), pname varchar(255), color varchar(255), weight int, city varchar(255), primary key(pnum));
-create table J (jnum varchar(255), jname varchar(255), city varchar(255), primary key(jnum));
+use SuppliersAndParts;
+create table S (snum varchar(255) not null, sname varchar(255), status int, city varchar(255), primary key(snum));
+create table P (pnum varchar(255) not null, pname varchar(255), color varchar(255), weight int, city varchar(255), primary key(pnum));
+create table J (jnum varchar(255) not null, jname varchar(255), city varchar(255), primary key(jnum));
 create table SPJ (snum varchar(255), pnum varchar(255), jnum varchar(255), qty int, 
 	primary key(snum,pnum,jnum), foreign key(snum) references S, foreign key(pnum) references P, foreign key(jnum) references J);
 
