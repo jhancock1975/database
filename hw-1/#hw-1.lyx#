@@ -72,7 +72,22 @@ Homework 1
 \end_layout
 
 \begin_layout Standard
-These are solutions to exercises 6.1 - 6.14 from Date
+These are solutions to exercises 6.1 - 6.14 from Introduction to Database
+ Systems by C.J Date.
+ 
+\end_layout
+
+\begin_layout Standard
+Please note: we created a MySQL database to do these exercises.
+ However, we were unable to use the '#' character for
+\end_layout
+
+\begin_layout Section*
+6.1
+\end_layout
+
+\begin_layout Standard
+Get full details of all projects
 \end_layout
 
 \end_body
