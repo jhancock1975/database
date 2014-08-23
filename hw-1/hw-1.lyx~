@@ -250,7 +250,7 @@ status open
 
 \begin_layout Standard
 Get supplier numbers for suppliers who supply project J1, in supplier number
- order
+ order.
 \begin_inset listings
 inline false
 status open
@@ -293,6 +293,114 @@ select snum from SPJ where jnum='J1' order by snum;
 \begin_layout Plain Layout
 
 +------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.4
+\end_layout
+
+\begin_layout Standard
+Get all shipments where the quantity is in the range 300 to 750 inclusive.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select snum,pnum,jnum, qty from SPJ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    -> where qty <= 750
+\end_layout
+
+\begin_layout Plain Layout
+
+    -> and qty >= 300;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| snum | pnum | jnum | qty  |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P1   | J4   |  700 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P3   | J1   |  400 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P3   | J4   |  500 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P3   | J5   |  600 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P3   | J6   |  400 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S3   | P4   | J2   |  500 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P6   | J3   |  300 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P6   | J7   |  300 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P5   | J5   |  500 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P5   | J4   |  400 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P6   | J4   |  500 |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+------+
 \end_layout
 
 \end_inset

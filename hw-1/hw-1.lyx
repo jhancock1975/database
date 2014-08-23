@@ -320,12 +320,12 @@ select snum,pnum,jnum, qty from SPJ
 
 \begin_layout Plain Layout
 
-    -> where qty <= 750
+     where qty <= 750
 \end_layout
 
 \begin_layout Plain Layout
 
-    -> and qty >= 300;
+     and qty >= 300;
 \end_layout
 
 \begin_layout Plain Layout
