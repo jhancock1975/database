@@ -78,8 +78,39 @@ These are solutions to exercises 6.1 - 6.14 from Introduction to Database
 \end_layout
 
 \begin_layout Standard
-Please note: we created a MySQL database to do these exercises.
- However, we were unable to use the '#' character for
+
+\series bold
+Please note:
+\series default
+ we created a MySQL database to do these exercises.
+ However, we were unable to use the '#' character for field names in tables,
+ so we used the string, 
+\begin_inset Quotes eld
+\end_inset
+
+num,
+\begin_inset Quotes erd
+\end_inset
+
+ in place of the '#' character wherever necessary.
+ For example, in the supplier table, S, instead of naming the first column,
+ 
+\begin_inset Quotes eld
+\end_inset
+
+s#,
+\begin_inset Quotes erd
+\end_inset
+
+ we name it 
+\begin_inset Quotes eld
+\end_inset
+
+snum.
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -87,7 +118,82 @@ Please note: we created a MySQL database to do these exercises.
 \end_layout
 
 \begin_layout Standard
-Get full details of all projects
+Get full details of all projects.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section*
+6.2
+\end_layout
+
+\begin_layout Standard
+Get full details of all projects in London.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/john/Documents/school/fall-2014/database/hw-1/pasted3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.3
+\end_layout
+
+\begin_layout Standard
+Get supplier numbers for suppliers who supply project J1, in supplier number
+ order.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select * from J where city='London';
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| jnum | jname    | city   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| J5   | Collator | London |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J7   | Tape     | London |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

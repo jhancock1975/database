@@ -118,12 +118,182 @@ snum.
 \end_layout
 
 \begin_layout Standard
-Get full details of all projects:
+Get full details of all projects.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/database/hw-1/pasted1.png
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select * from J;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| jnum | jname    | city   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| J1   | Sorter   | Paris  |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J2   | Punch    | Rome   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J3   | Reader   | Athens |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J4   | Console  | Athens |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J5   | Collator | London |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J6   | Terminal | Oslo   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J7   | Tape     | London |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.2
+\end_layout
+
+\begin_layout Standard
+Get full details of all projects in London.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ select * from J where city='London';
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| jnum | jname    | city   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| J5   | Collator | London |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J7   | Tape     | London |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.3
+\end_layout
+
+\begin_layout Standard
+Get supplier numbers for suppliers who supply project J1, in supplier number
+ order
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select snum from SPJ where jnum='J1' order by snum;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| snum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S3   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
 
 \end_inset
 
