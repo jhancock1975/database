@@ -122,6 +122,72 @@ Get full details of all projects.
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select * from J;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| jnum | jname    | city   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| J1   | Sorter   | Paris  |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J2   | Punch    | Rome   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J3   | Reader   | Athens |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J4   | Console  | Athens |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J5   | Collator | London |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J6   | Terminal | Oslo   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J7   | Tape     | London |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+----------+--------+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -134,31 +200,13 @@ Get full details of all projects in London.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename /home/john/Documents/school/fall-2014/database/hw-1/pasted3.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-6.3
-\end_layout
-
-\begin_layout Standard
-Get supplier numbers for suppliers who supply project J1, in supplier number
- order.
-\end_layout
-
-\begin_layout Standard
 \begin_inset listings
 inline false
 status open
 
 \begin_layout Plain Layout
 
-select * from J where city='London';
+ select * from J where city='London';
 \end_layout
 
 \begin_layout Plain Layout
@@ -193,6 +241,989 @@ select * from J where city='London';
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Section*
+6.3
+\end_layout
+
+\begin_layout Standard
+Get supplier numbers for suppliers who supply project J1, in supplier number
+ order.
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct snum from SPJ where jnum='j1' order by snum;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| snum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S3   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.4
+\end_layout
+
+\begin_layout Standard
+Get all shipments where the quantity is in the range 300 to 750 inclusive.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select snum,pnum,jnum, qty from SPJ 
+\end_layout
+
+\begin_layout Plain Layout
+
+where qty <= 750
+\end_layout
+
+\begin_layout Plain Layout
+
+and qty >= 300;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| snum | pnum | jnum | qty  |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P1   | J4   |  700 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P3   | J1   |  400 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P3   | J4   |  500 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P3   | J5   |  600 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P3   | J6   |  400 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S3   | P4   | J2   |  500 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P6   | J3   |  300 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P6   | J7   |  300 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P5   | J5   |  500 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P5   | J4   |  400 |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P6   | J4   |  500 |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+11 rows in set (0.00 sec)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.5
+\end_layout
+
+\begin_layout Standard
+Get a list of all part-color/part-city combinations, with duplicate color/city
+ pairs eliminated.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct city, color from P;
+\end_layout
+
+\begin_layout Plain Layout
+
++--------+-------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| city   | color |
+\end_layout
+
+\begin_layout Plain Layout
+
++--------+-------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| London | Red   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Paris  | Green |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Rome   | Blue  |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Paris  | Blue  |
+\end_layout
+
+\begin_layout Plain Layout
+
++--------+-------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.6
+\end_layout
+
+\begin_layout Standard
+Get all supplier-number/part-num/project-number triples such that the indicated
+ supplier, part and project are all colocated.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select  snum,pnum,jnum from S as s, P as p, J as j
+\end_layout
+
+\begin_layout Plain Layout
+
+where s.city=p.city and p.city=j.city;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| snum | pnum | jnum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P2   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S3   | P2   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P5   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S3   | P5   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P1   | J5   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P1   | J5   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P4   | J5   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P4   | J5   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P6   | J5   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P6   | J5   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P1   | J7   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P1   | J7   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P4   | J7   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P4   | J7   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P6   | J7   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P6   | J7   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+16 rows in set (0.00 sec)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.7
+\end_layout
+
+\begin_layout Standard
+Get all supplier-number/part-number/project-number triplies such that the
+ indicated supplier, part, and project are not all colocated.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select  snum,pnum,jnum from S as s, P as p, J as j 
+\end_layout
+
+\begin_layout Plain Layout
+
+where not (s.city=p.city and p.city=j.city);
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| snum | pnum | jnum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P1   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S2   | P1   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S3   | P1   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P1   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+...output truncated
+\end_layout
+
+\begin_layout Plain Layout
+
+194 rows in set (0.00 sec)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.8
+\end_layout
+
+\begin_layout Standard
+Get all supplier-number/part-number/project-number triples such that no
+ two of the indicated supplier, part, and project are not all colocated.
+\end_layout
+
+\begin_layout Standard
+Our answer differs in form from the book answer but is equivalent.
+\end_layout
+
+\begin_layout Standard
+Our answer:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select  snum,pnum,jnum from S as s, P as p, J as j where not (s.city=p.city
+ or s.city=j.city or p.city=j.city);
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| snum | pnum | jnum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P1   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P3   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P3   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P3   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+ output trucated ...
+\end_layout
+
+\begin_layout Plain Layout
+
+79 rows in set (0.00 sec) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Book answer:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select snum,pnum,jnum from S,P,J where S.city <> P.city and P.city <> J.city
+ and J.city <> S.city;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| snum | pnum | jnum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P1   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S1   | P3   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S4   | P3   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| S5   | P3   | J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+...output truncated...
+\end_layout
+
+\begin_layout Plain Layout
+
+79 rows in set (0.00 sec) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.9
+\end_layout
+
+\begin_layout Standard
+Get part numbers for parts supllied by a supplier in London.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct spj.pnum 
+\end_layout
+
+\begin_layout Plain Layout
+
+from S as s, SPJ as spj
+\end_layout
+
+\begin_layout Plain Layout
+
+where spj.snum=s.snum and s.city='London';
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| pnum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| P1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P6   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.10
+\end_layout
+
+\begin_layout Standard
+Get part numbers for pars supplied by a supplier in London to a project
+ in London.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct spj.pnum 
+\end_layout
+
+\begin_layout Plain Layout
+
+from SPJ as spj, S as s, J as j 
+\end_layout
+
+\begin_layout Plain Layout
+
+where spj.snum=s.snum and spj.jnum=j.jnum 
+\end_layout
+
+\begin_layout Plain Layout
+
+and s.city='London' and j.city='London';
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| pnum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| P6   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.11
+\end_layout
+
+\begin_layout Standard
+Get all pairs of city names such that a supplier in the first city supplies
+ a project in the second city
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct s.city, j.city 
+\end_layout
+
+\begin_layout Plain Layout
+
+from SPJ as spj, S as s, J as j
+\end_layout
+
+\begin_layout Plain Layout
+
+where spj.snum=s.snum and spj.jnum=j.jnum;
+\end_layout
+
+\begin_layout Plain Layout
+
++--------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| city   | city   |
+\end_layout
+
+\begin_layout Plain Layout
+
++--------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| London | Paris  |
+\end_layout
+
+\begin_layout Plain Layout
+
+| London | Athens |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Paris  | Paris  |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Paris  | Rome   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Paris  | Athens |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Paris  | London |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Paris  | Oslo   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| London | London |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Athens | Athens |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Athens | Rome   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| Athens | London |
+\end_layout
+
+\begin_layout Plain Layout
+
++--------+--------+
+\end_layout
+
+\begin_layout Plain Layout
+
+11 rows in set (0.00 sec)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.12
+\end_layout
+
+\begin_layout Standard
+Get part numbers for parts supplied to any project by a supplier in the
+ same city as that project.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct spj.pnum from SPJ spj, P as p, J as j where spj.pnum=p.pnum
+ and spj.jnum=j.jnum and j.city=p.city;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| pnum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| P3   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P6   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.13
+\end_layout
+
+\begin_layout Standard
+Get project numbers for projects supplied by at least one supplier not in
+ the same city.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct j.jnum from SPJ as spj, S as s, J as j
+\end_layout
+
+\begin_layout Plain Layout
+
+where spj.snum=s.snum and spj.jnum=j.jnum and s.city <> j.city;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| jnum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| J1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J4   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J2   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J3   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J5   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J6   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| J7   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+
+\end_layout
+
+\begin_layout Plain Layout
+
+7 rows in set (0.00 sec)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.14
+\end_layout
+
+\begin_layout Standard
+Get all pairs of part numbers such that some supplier supplies both the
+ indicated parts.
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
