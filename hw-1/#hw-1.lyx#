@@ -77,42 +77,6 @@ These are solutions to exercises 6.1 - 6.14 from Introduction to Database
  
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-Please note:
-\series default
- we created a MySQL database to do these exercises.
- However, we were unable to use the '#' character for field names in tables,
- so we used the string, 
-\begin_inset Quotes eld
-\end_inset
-
-num,
-\begin_inset Quotes erd
-\end_inset
-
- in place of the '#' character wherever necessary.
- For example, in the supplier table, S, instead of naming the first column,
- 
-\begin_inset Quotes eld
-\end_inset
-
-s#,
-\begin_inset Quotes erd
-\end_inset
-
- we name it 
-\begin_inset Quotes eld
-\end_inset
-
-snum.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section*
 6.1
 \end_layout
@@ -133,57 +97,56 @@ select * from J;
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
+J#		     JNAME		  CITY
 \end_layout
 
 \begin_layout Plain Layout
 
-| jnum | jname    | city   |
+-------------------- -------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
+J1		     Sorter		  Paris
 \end_layout
 
 \begin_layout Plain Layout
 
-| J1   | Sorter   | Paris  |
+J2		     Punch		  Rome
 \end_layout
 
 \begin_layout Plain Layout
 
-| J2   | Punch    | Rome   |
+J3		     Reader		  Athens
 \end_layout
 
 \begin_layout Plain Layout
 
-| J3   | Reader   | Athens |
+J4		     Console		  Athens
 \end_layout
 
 \begin_layout Plain Layout
 
-| J4   | Console  | Athens |
+J5		     Collator		  London
 \end_layout
 
 \begin_layout Plain Layout
 
-| J5   | Collator | London |
+J6		     Terminal		  Oslo
 \end_layout
 
 \begin_layout Plain Layout
 
-| J6   | Terminal | Oslo   |
+J7		     Tape		  London
 \end_layout
 
 \begin_layout Plain Layout
 
-| J7   | Tape     | London |
+7 rows selected.
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
 \end_layout
 
 \end_inset
@@ -206,37 +169,31 @@ status open
 
 \begin_layout Plain Layout
 
- select * from J where city='London';
+select * from J where city='London';
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
+J#		     JNAME		  CITY
 \end_layout
 
 \begin_layout Plain Layout
 
-| jnum | jname    | city   |
+-------------------- -------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
+J5		     Collator		  London
 \end_layout
 
 \begin_layout Plain Layout
 
-| J5   | Collator | London |
+J7		     Tape		  London
 \end_layout
 
 \begin_layout Plain Layout
 
-| J7   | Tape     | London |
-\end_layout
-
-\begin_layout Plain Layout
-
-+------+----------+--------+
 \end_layout
 
 \end_inset
@@ -257,42 +214,32 @@ status open
 
 \begin_layout Plain Layout
 
-select distinct snum from SPJ where jnum='j1' order by snum;
+select distinct s# from SPJ where j#='J1' order by s#;
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+S#
 \end_layout
 
 \begin_layout Plain Layout
 
-| snum |
+--------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+S1
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   |
+S2
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   |
-\end_layout
-
-\begin_layout Plain Layout
-
-| S3   |
-\end_layout
-
-\begin_layout Plain Layout
-
-+------+
+S3
 \end_layout
 
 \end_inset
@@ -315,7 +262,7 @@ status open
 
 \begin_layout Plain Layout
 
-select snum,pnum,jnum, qty from SPJ 
+sselect s#,p#,j#, qty from SPJ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -325,87 +272,82 @@ where qty <= 750
 
 \begin_layout Plain Layout
 
-and qty >= 300;
+and qty >= 300;  2    3  
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+------+
+S#		     P# 		  J#			      QTY
 \end_layout
 
 \begin_layout Plain Layout
 
-| snum | pnum | jnum | qty  |
+-------------------- -------------------- -------------------- ----------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+------+
+S1		     P1 		  J4			      700
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P1   | J4   |  700 |
+S2		     P3 		  J1			      400
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P3   | J1   |  400 |
+S2		     P3 		  J4			      500
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P3   | J4   |  500 |
+S2		     P3 		  J5			      600
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P3   | J5   |  600 |
+S2		     P3 		  J6			      400
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P3   | J6   |  400 |
+S3		     P4 		  J2			      500
 \end_layout
 
 \begin_layout Plain Layout
 
-| S3   | P4   | J2   |  500 |
+S4		     P6 		  J3			      300
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P6   | J3   |  300 |
+S4		     P6 		  J7			      300
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P6   | J7   |  300 |
+S5		     P5 		  J5			      500
 \end_layout
 
 \begin_layout Plain Layout
 
-| S5   | P5   | J5   |  500 |
+S5		     P5 		  J4			      400
 \end_layout
 
 \begin_layout Plain Layout
 
-| S5   | P5   | J4   |  400 |
+S5		     P6 		  J4			      500
 \end_layout
 
 \begin_layout Plain Layout
 
-| S5   | P6   | J4   |  500 |
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+------+
-\end_layout
-
-\begin_layout Plain Layout
-
-11 rows in set (0.00 sec)
+11 rows selected.
+ 
 \end_layout
 
 \end_inset
@@ -1224,6 +1166,118 @@ Get all pairs of part numbers such that some supplier supplies both the
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct spj1.pnum, spj2.pnum from SPJ as spj1, SPJ as spj2 where spj1.pnum
+ > spj2.pnum and spj1.snum=spj2.snum;
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| pnum | pnum |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| P5   | P3   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P4   | P3   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P2   | P1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P3   | P1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P3   | P2   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P4   | P1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P4   | P2   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P5   | P1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P5   | P2   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P5   | P4   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P6   | P1   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P6   | P2   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P6   | P3   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P6   | P4   |
+\end_layout
+
+\begin_layout Plain Layout
+
+| P6   | P5   |
+\end_layout
+
+\begin_layout Plain Layout
+
++------+------+
+\end_layout
+
+\begin_layout Plain Layout
+
+15 rows in set (0.00 sec)
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

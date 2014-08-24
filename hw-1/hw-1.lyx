@@ -77,42 +77,6 @@ These are solutions to exercises 6.1 - 6.14 from Introduction to Database
  
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-Please note:
-\series default
- we created a MySQL database to do these exercises.
- However, we were unable to use the '#' character for field names in tables,
- so we used the string, 
-\begin_inset Quotes eld
-\end_inset
-
-num,
-\begin_inset Quotes erd
-\end_inset
-
- in place of the '#' character wherever necessary.
- For example, in the supplier table, S, instead of naming the first column,
- 
-\begin_inset Quotes eld
-\end_inset
-
-s#,
-\begin_inset Quotes erd
-\end_inset
-
- we name it 
-\begin_inset Quotes eld
-\end_inset
-
-snum.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section*
 6.1
 \end_layout
@@ -133,57 +97,56 @@ select * from J;
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
+J#		     JNAME		  CITY
 \end_layout
 
 \begin_layout Plain Layout
 
-| jnum | jname    | city   |
+-------------------- -------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
+J1		     Sorter		  Paris
 \end_layout
 
 \begin_layout Plain Layout
 
-| J1   | Sorter   | Paris  |
+J2		     Punch		  Rome
 \end_layout
 
 \begin_layout Plain Layout
 
-| J2   | Punch    | Rome   |
+J3		     Reader		  Athens
 \end_layout
 
 \begin_layout Plain Layout
 
-| J3   | Reader   | Athens |
+J4		     Console		  Athens
 \end_layout
 
 \begin_layout Plain Layout
 
-| J4   | Console  | Athens |
+J5		     Collator		  London
 \end_layout
 
 \begin_layout Plain Layout
 
-| J5   | Collator | London |
+J6		     Terminal		  Oslo
 \end_layout
 
 \begin_layout Plain Layout
 
-| J6   | Terminal | Oslo   |
+J7		     Tape		  London
 \end_layout
 
 \begin_layout Plain Layout
 
-| J7   | Tape     | London |
+7 rows selected.
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
 \end_layout
 
 \end_inset
@@ -206,37 +169,31 @@ status open
 
 \begin_layout Plain Layout
 
- select * from J where city='London';
+select * from J where city='London';
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
+J#		     JNAME		  CITY
 \end_layout
 
 \begin_layout Plain Layout
 
-| jnum | jname    | city   |
+-------------------- -------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+----------+--------+
+J5		     Collator		  London
 \end_layout
 
 \begin_layout Plain Layout
 
-| J5   | Collator | London |
+J7		     Tape		  London
 \end_layout
 
 \begin_layout Plain Layout
 
-| J7   | Tape     | London |
-\end_layout
-
-\begin_layout Plain Layout
-
-+------+----------+--------+
 \end_layout
 
 \end_inset
@@ -257,42 +214,32 @@ status open
 
 \begin_layout Plain Layout
 
-select distinct snum from SPJ where jnum='j1' order by snum;
+select distinct s# from SPJ where j#='J1' order by s#;
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+S#
 \end_layout
 
 \begin_layout Plain Layout
 
-| snum |
+--------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+S1
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   |
+S2
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   |
-\end_layout
-
-\begin_layout Plain Layout
-
-| S3   |
-\end_layout
-
-\begin_layout Plain Layout
-
-+------+
+S3
 \end_layout
 
 \end_inset
@@ -315,7 +262,7 @@ status open
 
 \begin_layout Plain Layout
 
-select snum,pnum,jnum, qty from SPJ 
+sselect s#,p#,j#, qty from SPJ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -325,87 +272,82 @@ where qty <= 750
 
 \begin_layout Plain Layout
 
-and qty >= 300;
+and qty >= 300;  2    3  
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+------+
+S#		     P# 		  J#			      QTY
 \end_layout
 
 \begin_layout Plain Layout
 
-| snum | pnum | jnum | qty  |
+-------------------- -------------------- -------------------- ----------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+------+
+S1		     P1 		  J4			      700
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P1   | J4   |  700 |
+S2		     P3 		  J1			      400
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P3   | J1   |  400 |
+S2		     P3 		  J4			      500
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P3   | J4   |  500 |
+S2		     P3 		  J5			      600
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P3   | J5   |  600 |
+S2		     P3 		  J6			      400
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P3   | J6   |  400 |
+S3		     P4 		  J2			      500
 \end_layout
 
 \begin_layout Plain Layout
 
-| S3   | P4   | J2   |  500 |
+S4		     P6 		  J3			      300
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P6   | J3   |  300 |
+S4		     P6 		  J7			      300
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P6   | J7   |  300 |
+S5		     P5 		  J5			      500
 \end_layout
 
 \begin_layout Plain Layout
 
-| S5   | P5   | J5   |  500 |
+S5		     P5 		  J4			      400
 \end_layout
 
 \begin_layout Plain Layout
 
-| S5   | P5   | J4   |  400 |
+S5		     P6 		  J4			      500
 \end_layout
 
 \begin_layout Plain Layout
 
-| S5   | P6   | J4   |  500 |
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+------+
-\end_layout
-
-\begin_layout Plain Layout
-
-11 rows in set (0.00 sec)
+11 rows selected.
+ 
 \end_layout
 
 \end_inset
@@ -434,42 +376,36 @@ select distinct city, color from P;
 
 \begin_layout Plain Layout
 
-+--------+-------+
+CITY		     COLOR
 \end_layout
 
 \begin_layout Plain Layout
 
-| city   | color |
+-------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+--------+-------+
+Paris		     Green
 \end_layout
 
 \begin_layout Plain Layout
 
-| London | Red   |
+London		     Red
 \end_layout
 
 \begin_layout Plain Layout
 
-| Paris  | Green |
+Paris		     Blue
 \end_layout
 
 \begin_layout Plain Layout
 
-| Rome   | Blue  |
+Rome		     Blue
 \end_layout
 
 \begin_layout Plain Layout
 
-| Paris  | Blue  |
-\end_layout
-
-\begin_layout Plain Layout
-
-+--------+-------+
 \end_layout
 
 \end_inset
@@ -493,117 +429,117 @@ status open
 
 \begin_layout Plain Layout
 
-select  snum,pnum,jnum from S as s, P as p, J as j
+select  s#,p#,j# from S s, P p, J j
 \end_layout
 
 \begin_layout Plain Layout
 
-where s.city=p.city and p.city=j.city;
+where s.city=p.city and p.city=j.city;  2  
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+
+S#		     P# 		  J#
 \end_layout
 
 \begin_layout Plain Layout
 
-| snum | pnum | jnum |
+-------------------- -------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+
+S1		     P1 		  J7
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P2   | J1   |
+S1		     P4 		  J7
 \end_layout
 
 \begin_layout Plain Layout
 
-| S3   | P2   | J1   |
+S1		     P6 		  J7
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P5   | J1   |
+S1		     P1 		  J5
 \end_layout
 
 \begin_layout Plain Layout
 
-| S3   | P5   | J1   |
+S1		     P4 		  J5
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P1   | J5   |
+S1		     P6 		  J5
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P1   | J5   |
+S2		     P2 		  J1
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P4   | J5   |
+S2		     P5 		  J1
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P4   | J5   |
+S3		     P2 		  J1
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P6   | J5   |
+S3		     P5 		  J1
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P6   | J5   |
+S4		     P1 		  J7
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P1   | J7   |
+S#		     P# 		  J#
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P1   | J7   |
+-------------------- -------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P4   | J7   |
+S4		     P4 		  J7
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P4   | J7   |
+S4		     P6 		  J7
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P6   | J7   |
+S4		     P1 		  J5
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P6   | J7   |
+S4		     P4 		  J5
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+
+S4		     P6 		  J5
 \end_layout
 
 \begin_layout Plain Layout
 
-16 rows in set (0.00 sec)
+16 rows selected.
 \end_layout
 
 \end_inset
@@ -627,57 +563,48 @@ status open
 
 \begin_layout Plain Layout
 
-select  snum,pnum,jnum from S as s, P as p, J as j 
+select  s#,p#,j# from S s, P p, J j 
 \end_layout
 
 \begin_layout Plain Layout
 
-where not (s.city=p.city and p.city=j.city);
+where not (s.city=p.city and p.city=j.city);  2  
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+
+S#		     P# 		  J#
 \end_layout
 
 \begin_layout Plain Layout
 
-| snum | pnum | jnum |
+-------------------- -------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+
+S1		     P1 		  J1
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P1   | J1   |
+S1		     P1 		  J2
 \end_layout
 
 \begin_layout Plain Layout
 
-| S2   | P1   | J1   |
+S1		     P1 		  J3
 \end_layout
 
 \begin_layout Plain Layout
 
-| S3   | P1   | J1   |
+...output truncated...
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P1   | J1   |
-\end_layout
-
-\begin_layout Plain Layout
-
-...output truncated
-\end_layout
-
-\begin_layout Plain Layout
-
-194 rows in set (0.00 sec)
+194 rows selected.
+ 
 \end_layout
 
 \end_inset
@@ -709,43 +636,37 @@ status open
 
 \begin_layout Plain Layout
 
-select  snum,pnum,jnum from S as s, P as p, J as j where not (s.city=p.city
- or s.city=j.city or p.city=j.city);
+select  s#,p#,j# from S s, P p, J j
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+
+where not (s.city=p.city or s.city=j.city or p.city=j.city);  2  
 \end_layout
 
 \begin_layout Plain Layout
 
-| snum | pnum | jnum |
+S#		     P# 		  J#
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+
+-------------------- -------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-| S5   | P1   | J1   |
+S1		     P2 		  J2
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P3   | J1   |
+S1		     P2 		  J3
 \end_layout
 
 \begin_layout Plain Layout
 
-| S4   | P3   | J1   |
-\end_layout
-
-\begin_layout Plain Layout
-
-| S5   | P3   | J1   |
+S1		     P2 		  J4
 \end_layout
 
 \begin_layout Plain Layout
@@ -756,7 +677,8 @@ select  snum,pnum,jnum from S as s, P as p, J as j where not (s.city=p.city
 
 \begin_layout Plain Layout
 
-79 rows in set (0.00 sec) 
+79 rows selected.
+ 
 \end_layout
 
 \end_inset
@@ -775,43 +697,32 @@ status open
 
 \begin_layout Plain Layout
 
-select snum,pnum,jnum from S,P,J where S.city <> P.city and P.city <> J.city
- and J.city <> S.city;
+select s#,p#,j# from S,P,J 
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+
+where S.city <> P.city and P.city <> J.city and J.city <> S.city;  2  
 \end_layout
 
 \begin_layout Plain Layout
 
-| snum | pnum | jnum |
+S#		     P# 		  J#
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+------+
+-------------------- -------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-| S5   | P1   | J1   |
+S1		     P2 		  J2
 \end_layout
 
 \begin_layout Plain Layout
 
-| S1   | P3   | J1   |
-\end_layout
-
-\begin_layout Plain Layout
-
-| S4   | P3   | J1   |
-\end_layout
-
-\begin_layout Plain Layout
-
-| S5   | P3   | J1   |
+S1		     P2 		  J3
 \end_layout
 
 \begin_layout Plain Layout
@@ -821,7 +732,8 @@ select snum,pnum,jnum from S,P,J where S.city <> P.city and P.city <> J.city
 
 \begin_layout Plain Layout
 
-79 rows in set (0.00 sec) 
+79 rows selected.
+ 
 \end_layout
 
 \end_inset
@@ -844,47 +756,37 @@ status open
 
 \begin_layout Plain Layout
 
-select distinct spj.pnum 
+select distinct spj.p# 
 \end_layout
 
 \begin_layout Plain Layout
 
-from S as s, SPJ as spj
+from S s, SPJ spj
 \end_layout
 
 \begin_layout Plain Layout
 
-where spj.snum=s.snum and s.city='London';
+where spj.s#=s.s# and s.city='London';  2    3  
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+P#
 \end_layout
 
 \begin_layout Plain Layout
 
-| pnum |
+--------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+P1
 \end_layout
 
 \begin_layout Plain Layout
 
-| P1   |
-\end_layout
-
-\begin_layout Plain Layout
-
-| P6   |
-\end_layout
-
-\begin_layout Plain Layout
-
-+------+
+P6
 \end_layout
 
 \end_inset
@@ -908,47 +810,37 @@ status open
 
 \begin_layout Plain Layout
 
-select distinct spj.pnum 
+select distinct spj.p# 
 \end_layout
 
 \begin_layout Plain Layout
 
-from SPJ as spj, S as s, J as j 
+from SPJ spj, S s, J j 
 \end_layout
 
 \begin_layout Plain Layout
 
-where spj.snum=s.snum and spj.jnum=j.jnum 
+where spj.s#=s.s# and spj.j#=j.j# 
 \end_layout
 
 \begin_layout Plain Layout
 
-and s.city='London' and j.city='London';
+and s.city='London' and j.city='London';  2    3    4  
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+P#
 \end_layout
 
 \begin_layout Plain Layout
 
-| pnum |
+--------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
-\end_layout
-
-\begin_layout Plain Layout
-
-| P6   |
-\end_layout
-
-\begin_layout Plain Layout
-
-+------+
+P6
 \end_layout
 
 \end_inset
@@ -977,92 +869,82 @@ select distinct s.city, j.city
 
 \begin_layout Plain Layout
 
-from SPJ as spj, S as s, J as j
+from SPJ spj, S s, J j
 \end_layout
 
 \begin_layout Plain Layout
 
-where spj.snum=s.snum and spj.jnum=j.jnum;
+where spj.s#=s.s# and spj.j#=j.j#;  2    3  
 \end_layout
 
 \begin_layout Plain Layout
 
-+--------+--------+
+CITY		     CITY
 \end_layout
 
 \begin_layout Plain Layout
 
-| city   | city   |
+-------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+--------+--------+
+Athens		     London
 \end_layout
 
 \begin_layout Plain Layout
 
-| London | Paris  |
+Paris		     Oslo
 \end_layout
 
 \begin_layout Plain Layout
 
-| London | Athens |
+Paris		     Rome
 \end_layout
 
 \begin_layout Plain Layout
 
-| Paris  | Paris  |
+Paris		     Athens
 \end_layout
 
 \begin_layout Plain Layout
 
-| Paris  | Rome   |
+Athens		     Rome
 \end_layout
 
 \begin_layout Plain Layout
 
-| Paris  | Athens |
+Paris		     London
 \end_layout
 
 \begin_layout Plain Layout
 
-| Paris  | London |
+London		     London
 \end_layout
 
 \begin_layout Plain Layout
 
-| Paris  | Oslo   |
+Paris		     Paris
 \end_layout
 
 \begin_layout Plain Layout
 
-| London | London |
+Athens		     Athens
 \end_layout
 
 \begin_layout Plain Layout
 
-| Athens | Athens |
+London		     Paris
 \end_layout
 
 \begin_layout Plain Layout
 
-| Athens | Rome   |
+London		     Athens
 \end_layout
 
 \begin_layout Plain Layout
 
-| Athens | London |
-\end_layout
-
-\begin_layout Plain Layout
-
-+--------+--------+
-\end_layout
-
-\begin_layout Plain Layout
-
-11 rows in set (0.00 sec)
+11 rows selected.
 \end_layout
 
 \end_inset
@@ -1086,38 +968,32 @@ status open
 
 \begin_layout Plain Layout
 
-select distinct spj.pnum from SPJ spj, P as p, J as j where spj.pnum=p.pnum
- and spj.jnum=j.jnum and j.city=p.city;
+select distinct spj.p# from SPJ spj, P p, J j 
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+where spj.p#=p.p# and spj.j#=j.j# and j.city=p.city;  2  
 \end_layout
 
 \begin_layout Plain Layout
 
-| pnum |
+P#
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+--------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-| P3   |
+P3
 \end_layout
 
 \begin_layout Plain Layout
 
-| P6   |
-\end_layout
-
-\begin_layout Plain Layout
-
-+------+
+P6
 \end_layout
 
 \end_inset
@@ -1141,72 +1017,62 @@ status open
 
 \begin_layout Plain Layout
 
-select distinct j.jnum from SPJ as spj, S as s, J as j
+select distinct j.j# from SPJ spj, S s, J j
 \end_layout
 
 \begin_layout Plain Layout
 
-where spj.snum=s.snum and spj.jnum=j.jnum and s.city <> j.city;
+where spj.s#=s.s# and spj.j#=j.j# and s.city <> j.city;  2  
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+J#
 \end_layout
 
 \begin_layout Plain Layout
 
-| jnum |
+--------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+
+J2
 \end_layout
 
 \begin_layout Plain Layout
 
-| J1   |
+J7
 \end_layout
 
 \begin_layout Plain Layout
 
-| J4   |
+J3
 \end_layout
 
 \begin_layout Plain Layout
 
-| J2   |
+J6
 \end_layout
 
 \begin_layout Plain Layout
 
-| J3   |
+J5
 \end_layout
 
 \begin_layout Plain Layout
 
-| J5   |
+J1
 \end_layout
 
 \begin_layout Plain Layout
 
-| J6   |
+J4
 \end_layout
 
 \begin_layout Plain Layout
 
-| J7   |
-\end_layout
-
-\begin_layout Plain Layout
-
-+------+
-\end_layout
-
-\begin_layout Plain Layout
-
-7 rows in set (0.00 sec)
+7 rows selected.
 \end_layout
 
 \end_inset
@@ -1230,108 +1096,112 @@ status open
 
 \begin_layout Plain Layout
 
-select distinct spj1.pnum, spj2.pnum from SPJ as spj1, SPJ as spj2 where spj1.pnum
- > spj2.pnum and spj1.snum=spj2.snum;
+select distinct spj1.p#, spj2.p# from SPJ spj1, SPJ spj2 
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+
+where spj1.p# > spj2.p# and spj1.s#=spj2.s#;  2  
 \end_layout
 
 \begin_layout Plain Layout
 
-| pnum | pnum |
+P#		     P#
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+
+-------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-| P5   | P3   |
+P6		     P4
 \end_layout
 
 \begin_layout Plain Layout
 
-| P4   | P3   |
+P5		     P3
 \end_layout
 
 \begin_layout Plain Layout
 
-| P2   | P1   |
+P4		     P1
 \end_layout
 
 \begin_layout Plain Layout
 
-| P3   | P1   |
+P6		     P3
 \end_layout
 
 \begin_layout Plain Layout
 
-| P3   | P2   |
+P3		     P1
 \end_layout
 
 \begin_layout Plain Layout
 
-| P4   | P1   |
+P2		     P1
 \end_layout
 
 \begin_layout Plain Layout
 
-| P4   | P2   |
+P3		     P2
 \end_layout
 
 \begin_layout Plain Layout
 
-| P5   | P1   |
+P5		     P1
 \end_layout
 
 \begin_layout Plain Layout
 
-| P5   | P2   |
+P6		     P2
 \end_layout
 
 \begin_layout Plain Layout
 
-| P5   | P4   |
+P6		     P1
 \end_layout
 
 \begin_layout Plain Layout
 
-| P6   | P1   |
+P5		     P2
 \end_layout
 
 \begin_layout Plain Layout
 
-| P6   | P2   |
+P#		     P#
 \end_layout
 
 \begin_layout Plain Layout
 
-| P6   | P3   |
+-------------------- --------------------
 \end_layout
 
 \begin_layout Plain Layout
 
-| P6   | P4   |
+P6		     P5
 \end_layout
 
 \begin_layout Plain Layout
 
-| P6   | P5   |
+P4		     P3
 \end_layout
 
 \begin_layout Plain Layout
 
-+------+------+
+P4		     P2
 \end_layout
 
 \begin_layout Plain Layout
 
-15 rows in set (0.00 sec)
+P5		     P4
+\end_layout
+
+\begin_layout Plain Layout
+
+15 rows selected.
 \end_layout
 
 \end_inset
