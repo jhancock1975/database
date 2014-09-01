@@ -1,0 +1,238 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fancyhdr}% http://ctan.org/pkg/fancyhdr
+\fancyhead{}% Clear all headers
+%\fancyfoot{}% Clear all footers
+\fancyhead[C]{John Hancock}% Place "John Hancock" in Center of header
+\renewcommand{\headrulewidth}{0pt}% Remove header rule
+%\renewcommand{\footrulewidth}{0pt}% Remove footer rule
+\pagestyle{fancy}% Set page style to "fancy"
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Part*
+Homework #2 Date exercises 6.21-6.25
+\end_layout
+
+\begin_layout Standard
+For this homework we are required to produce flat and nested solutions.
+\end_layout
+
+\begin_layout Section*
+6.21
+\end_layout
+
+\begin_layout Standard
+Get project names for projects supplied by supplier S1.
+\end_layout
+
+\begin_layout Standard
+Nested:
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select jname from J where j# in (select j# from SPJ where s#='S1');
+\end_layout
+
+\begin_layout Plain Layout
+
+JNAME
+\end_layout
+
+\begin_layout Plain Layout
+
+----------
+\end_layout
+
+\begin_layout Plain Layout
+
+Sorter
+\end_layout
+
+\begin_layout Plain Layout
+
+Console
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Flat:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ select jname from J j, SPJ spj
+\end_layout
+
+\begin_layout Plain Layout
+
+where spj.s#='S1' and j.j#=spj.j#;  2  
+\end_layout
+
+\begin_layout Plain Layout
+
+JNAME
+\end_layout
+
+\begin_layout Plain Layout
+
+----------
+\end_layout
+
+\begin_layout Plain Layout
+
+Sorter
+\end_layout
+
+\begin_layout Plain Layout
+
+Console
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+6.22
+\end_layout
+
+\begin_layout Standard
+Get colors of parts supplied by supplier S1.
+\end_layout
+
+\begin_layout Standard
+Nested:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct color from P where p# in (select p# from SPJ where s#='S1');
+\end_layout
+
+\begin_layout Plain Layout
+
+COLOR
+\end_layout
+
+\begin_layout Plain Layout
+
+----------
+\end_layout
+
+\begin_layout Plain Layout
+
+Red
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Flat:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select distinct p.color  from P p, SPJ spj
+\end_layout
+
+\begin_layout Plain Layout
+
+where p.p#=spj.p# and spj.s#='S1';
+\end_layout
+
+\begin_layout Plain Layout
+
+  2  
+\end_layout
+
+\begin_layout Plain Layout
+
+COLOR
+\end_layout
+
+\begin_layout Plain Layout
+
+----------
+\end_layout
+
+\begin_layout Plain Layout
+
+Red
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -563,62 +563,6 @@ status open
 
 \begin_layout Plain Layout
 
-select distinct spj1.s# from
-\end_layout
-
-\begin_layout Plain Layout
-
-SPJ spj1, SPJ spj2, SPJ spj3, P p
-\end_layout
-
-\begin_layout Plain Layout
-
-where spj1.p#=spj2.p#
-\end_layout
-
-\begin_layout Plain Layout
-
-and spj2.s# = spj3.s#
-\end_layout
-
-\begin_layout Plain Layout
-
-and spj3.p#=p.p# and p.color='Red';  2    3    4    5  
-\end_layout
-
-\begin_layout Plain Layout
-
-S#
-\end_layout
-
-\begin_layout Plain Layout
-
-----------
-\end_layout
-
-\begin_layout Plain Layout
-
-S3
-\end_layout
-
-\begin_layout Plain Layout
-
-S4
-\end_layout
-
-\begin_layout Plain Layout
-
-S5
-\end_layout
-
-\begin_layout Plain Layout
-
-S2
-\end_layout
-
-\begin_layout Plain Layout
-
-S1
 \end_layout
 
 \end_inset
