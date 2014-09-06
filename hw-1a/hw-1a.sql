@@ -27,10 +27,14 @@ and spj.j#=j.j#;
 select s# from spj, p
 where p.weight > 15 
 and spj.p#=p.p#
-minus
-select s# from spj, j
-where j.city='London'
-and spj.j#=j.j#;
+minus (
+	select s# from S 
+	minus
+		(select s# from spj, j
+		where j.city='London'
+		and spj.j#=j.j#;)
+	)
+);
 
 /* problem 4 */
 select spjx.j#, spjy.j#
