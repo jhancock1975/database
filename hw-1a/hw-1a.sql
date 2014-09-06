@@ -1,6 +1,6 @@
 set echo on
 /* Problem 1 (a) */
-select s# from spj, p, j
+select distinct s# from spj, p, j
 where p.weight > 15 
 and j.city='London'
 and spj.j#=j.j#
@@ -8,7 +8,7 @@ and spj.p#=p.p#;
 
 /* Problem 1 (b) */
 
-select s# from spj
+select distinct s# from spj
 where 
 j# in (select j# from j where j.city='London')
 and
