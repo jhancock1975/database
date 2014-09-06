@@ -38,8 +38,8 @@ minus
 
 (select s# from spj, j
 	where j.city='London'
-	and spj.j#=j.j#	)
-);
+	and spj.j#=j.j#	);
+
 
 /* problem 4 */
 
