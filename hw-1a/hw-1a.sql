@@ -1,6 +1,6 @@
-command echo on
+set echo on
 /* Problem 1 (a) */
-select s# from spj,p,j
+select s# from spj, p, j
 where p.weight > 15 
 and j.city='London'
 and spj.j#=j.j#
@@ -15,20 +15,20 @@ and
 p# in (select p# from p where p.weight > 15);
 
 /* problem 2 */
-select s# from spj,p
+select s# from spj, p
 where p.weight > 15 
 and spj.p#=p.p#
 intersect
-select s# from spj,j
+select s# from spj, j
 where j.city='London'
 and spj.j#=j.j#;
 
 /* problem 3 */
-select s# from spj,p
+select s# from spj, p
 where p.weight > 15 
 and spj.p#=p.p#
 minus
-select s# from spj,j
+select s# from spj, j
 where j.city='London'
 and spj.j#=j.j#;
 
