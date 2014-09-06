@@ -34,8 +34,7 @@ minus (
 		where j.city='London'
 		and spj.j#=j.j#
 		)
-	)
-);
+	);
 
 /* problem 4 */
 select spjx.j#, spjy.j#
