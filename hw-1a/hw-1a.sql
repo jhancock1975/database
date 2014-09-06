@@ -19,13 +19,13 @@ where
 /* problem 2 */
 
 (select s# from spj, p
-where p.weight > 15 
+	where p.weight > 15 
 	and spj.p#=p.p#)
 
 intersect
 
 (select s# from spj, j
-where j.city='London'
+	where j.city='London'
 	and spj.j#=j.j#);
 
 /* problem 3 */
@@ -36,24 +36,19 @@ where j.city='London'
 
 minus
 
-(
-	(select s# from S )
-	
-	minus 
-
-	(select s# from spj, j
+(select s# from spj, j
 	where j.city='London'
-		and spj.j#=j.j#	)
+	and spj.j#=j.j#	)
 );
 
 /* problem 4 */
 
 select spjx.j#, spjy.j#
-from s, spj spjx, spj spjy
-where s.city='London'
-and spjx.j# < spjy.j#
-and spjx.s#=s.s#
-and spjy.s#=s.s#;
+	from s, spj spjx, spj spjy
+	where s.city='London'
+	and spjx.j# < spjy.j#
+	and spjx.s#=s.s#
+	and spjy.s#=s.s#;
 
 /* problem 5 */
 
