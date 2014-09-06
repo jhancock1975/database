@@ -43,7 +43,7 @@ minus
 
 /* problem 4 */
 
-select spjx.j#, spjy.j#
+select distinct spjx.j#, spjy.j#
 	from s, spj spjx, spj spjy
 	where s.city='London'
 	and spjx.j# < spjy.j#
