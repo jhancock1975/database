@@ -11,8 +11,7 @@ having avg(qty) >
 
 select p# from p where 
 (select avg(qty) from spj where spj.p#=p.p#) >
-(select avg(qty) from spj where p# in (select p# from p where color='Red'));
-
+(select avg(qty) from spj where p.color='Red');
 
 /* Problem 8  (a) */
 
