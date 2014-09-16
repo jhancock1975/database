@@ -18,18 +18,19 @@ select p# from p where
 select s# from spj where
   j# in (select j# from j where j.city='Rome') and
   p# in (select p# from p where p.color='Red')
-group by s#
+group by s#, p#
 having count(distinct j#)=(select count(*) from j where j.city='Rome');
 
 
 /* Problem 8  (b) */
 
-select s# from s
+select distinct s# from s,p
  where (select count(distinct j#) from spj where spj.s#=s.s#
         and spj.j# in (select j# from j where j.city='Rome')
-        and spj.p# in (select p# from p where p.color='Red')
+        and spj.p# in (select p# from p where p.color='Red') 
         ) =
-        (select count(*) from j where j.city='Rome');
+        (select count(*) from j where j.city='Rome')
+  ;
 
 /* Problem 9 (a) */
 
